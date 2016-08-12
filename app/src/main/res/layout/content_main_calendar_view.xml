@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="e_r_c.hdxscheduler.MainCalendarView"
+    tools:showIn="@layout/activity_main_calendar_view">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:id="@+id/CalendarScrollView"
+        android:background="@color/colorPrimaryDark">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/calendarSplitterRelativeLayout"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:id="@+id/hoursRelativeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="0dp">
+                    <TextView
+                        android:id="@+id/time6amTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="360dp"
+                        android:gravity="center"
+                        android:text="@string/time6am"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/time7amTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="420dp"
+                        android:gravity="center"
+                        android:text="@string/time7am"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/time8amTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="480dp"
+                        android:gravity="center"
+                        android:text="@string/time8am"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/time9amTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="540dp"
+                        android:gravity="center"
+                        android:text="@string/time9am"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/time10amTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="600dp"
+                        android:gravity="center"
+                        android:text="@string/time10am"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/time11amTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="660dp"
+                        android:gravity="center"
+                        android:text="@string/time11am"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/time12pmTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="720dp"
+                        android:gravity="center"
+                        android:text="@string/time12pm"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/time1pmTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="780dp"
+                        android:gravity="center"
+                        android:text="@string/time1pm"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/time2pmTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="840dp"
+                        android:gravity="center"
+                        android:text="@string/time2pm"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/time3pmTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="900dp"
+                        android:gravity="center"
+                        android:text="@string/time3pm"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/time4pmTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="960dp"
+                        android:gravity="center"
+                        android:text="@string/time4pm"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/time5pmTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="1020dp"
+                        android:gravity="center"
+                        android:text="@string/time5pm"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/time6pmTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="1080dp"
+                        android:gravity="center"
+                        android:text="@string/time6pm"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/time7pmTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="1140dp"
+                        android:gravity="center"
+                        android:text="@string/time7pm"
+                        android:textSize="15dp" />
+
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

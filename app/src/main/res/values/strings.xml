@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">HDXScheduler</string>
+    <string name="action_settings">Settings</string>
+    <string name="time12am">12 A.M</string>
+    <string name="time6am">6 A.M.</string>
+    <string name="time7am">7 A.M.</string>
+    <string name="time8am">8 A.M.</string>
+    <string name="time9am">9 A.M.</string>
+    <string name="time10am">10 A.M.</string>
+    <string name="time11am">11 A.M.</string>
+    <string name="time12pm">12 P.M.</string>
+    <string name="time1pm">1 P.M.</string>
+    <string name="time2pm">2 P.M.</string>
+    <string name="time3pm">3 P.M.</string>
+    <string name="time4pm">4 P.M.</string>
+    <string name="time5pm">5 P.M.</string>
+    <string name="time6pm">6 P.M.</string>
+    <string name="time7pm">7 P.M.</string>
+    <string name="title_activity_test">testActivity</string>
+    <string name="subject">Subject</string>
+    <string name="learning_domain">Learning Domain</string>
+</resources>
