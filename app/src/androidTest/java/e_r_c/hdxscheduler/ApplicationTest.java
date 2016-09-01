@@ -12,9 +12,6 @@ import java.util.HashMap;
 import JSON.Courses.Course;
 import JSON.JSONUtil;
 
-/**
- * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
- */
 public class ApplicationTest extends ApplicationTestCase<Application> {
     Context context = getContext();
     public ApplicationTest() {

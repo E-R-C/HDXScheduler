@@ -1,15 +1,16 @@
 package JSON.Courses;
 
+import lombok.Value;
+
+/**
+ *
+ * Combination of code and title.
+ *
+ * @author E-R-C
+ */
+
+// TODO: Add info on what this is and what it's purpose is. I do not know.
+@Value
 public class CodeTitleDuple {
-    private String code, title;
-    public CodeTitleDuple(String code, String title){
-        this.code = code;
-        this.title = title;
-    }
-    public String getCode() {
-        return code;
-    }
-    public String getTitle() {
-        return title;
-    }
+    private final String code, title;
 }

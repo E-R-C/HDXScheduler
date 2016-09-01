@@ -9,12 +9,13 @@ import JSON.Courses.Course;
 import JSON.JSONUtil;
 
 public class SearchActivity extends AppCompatActivity {
-    HashMap<String,Course> courses;
+
+    private HashMap<String,Course> courses;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
         courses = JSONUtil.getRefreshedParsedJSON(this,2016);
-
     }
 }
