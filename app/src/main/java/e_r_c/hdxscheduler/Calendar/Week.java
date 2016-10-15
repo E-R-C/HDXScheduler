@@ -4,21 +4,36 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 import JSON.Courses.Course;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+/**
+ *
+ * Week class
+ *
+ * @author E-R-C
+ */
+
+// TODO: Explain what this is for. Not used at all?
+
+@NoArgsConstructor
 public class Week {
     public static final String splitValue = "UniQuES#tRiNgWEEK";
     public static final String splitTitle = "uSTiT#le";
+
+    @Getter
+    @Setter
     String title;
-    HashMap<String, Day> days;
+
+    final HashMap<String, Day> days = new HashMap<>(5);
+
     public Week(String title){
         this.title = title;
-        this.days = new HashMap<>(5);
         loadDefaultDays();
     }
-    public Week(){
-        title = null;
-        days = new HashMap<>(5);
-    }
+
+    // FIXME: 9/1/16 Put days to string array in strings.xml
     private void loadDefaultDays(){
         days.put("M",new Day("M"));
         days.put("T",new Day("T"));
@@ -26,6 +41,7 @@ public class Week {
         days.put("R",new Day("T"));
         days.put("F",new Day("F"));
     }
+
     public void addCourse(Course c){
         HashSet<Day> days = getDaysforCourse(c);
         if (validCourse(c)){
@@ -34,9 +50,11 @@ public class Week {
             }
         }
     }
+
     public Day getDay(String s){
         return days.get(s);
     }
+
     public boolean validCourse(Course c){
         HashSet<Day> validdays = getDaysforCourse(c);
         for (Day d: validdays){
@@ -46,6 +64,7 @@ public class Week {
         }
         return true;
     }
+
     public HashSet<Day> getDaysforCourse(Course c){
         HashSet<Day> result = new HashSet<>(5);
         String[] split = c.getDays().split("\\|");
@@ -54,15 +73,11 @@ public class Week {
         }
         return result;
     }
-    public void setTitle(String s){
-        this.title = s;
-    }
-    public String getTitle(){
-        return title;
-    }
+
     public void addDay(Day d){
         days.put(d.getTitle(),d);
     }
+
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append(title);
@@ -74,6 +89,7 @@ public class Week {
         }
         return sb.toString();
     }
+
     public static Week fromString(String s, HashMap<String,Course> courses){
         Week result = new Week();
         String[] s1 = s.split(splitTitle);

@@ -9,6 +9,9 @@ import java.util.HashSet;
 
 import JSON.Courses.Course;
 
+/*
+ * FIXME: None of the tests work.
+ */
 public class JSONUtilTest {
     String classes;
 

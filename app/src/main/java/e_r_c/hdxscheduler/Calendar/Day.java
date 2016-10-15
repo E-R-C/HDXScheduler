@@ -1,14 +1,25 @@
 package e_r_c.hdxscheduler.Calendar;
 
+import android.util.Log;
+
 import java.util.HashMap;
 import java.util.HashSet;
 
 import JSON.Courses.Course;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 public class Day {
+    private static final String LOG_TAG = "Day";
+
     final static String splitValue = "UnIqUeStRiNgDAY";
     final static String titleSplitValue = "TITLEVALUESPLITT";
+
+    @Setter
+    @Getter
     String Title;
+
     // Remember that normally there won't be more tha 4 courses per day.
     HashSet<Course> courses;
     TimeSet timeSet;
@@ -24,42 +35,19 @@ public class Day {
         timeSet = new TimeSet();
     }
 
-
-    public void setTitle(String s){
-        Title = s;
-    }
-    public String getTitle(){
-        return Title;
-    }
-
     public void add(Course c){
         if (timeSet.validToInsert(c)){
             timeSet.insert(c);
             courses.add(c);
         } else {
-            System.out.println("invalid Entry just attempted, Check Week Implementation");
+            Log.v(LOG_TAG, "invalid Entry just attempted, Check Week Implementation");
         }
     }
-    public boolean contains(Course c){
-        for(Course in: courses){
-            if (in.isEqual(c)){
-                return true;
-            }
-        }
-        return false;
-    }
-    public void remove(Course c){
-        timeSet.remove(c);
-        for (Course in: courses){
-            if (in.isEqual(c)){
-                courses.remove(in);
-                break;
-            }
-        }
-    }
+
     public boolean validToAdd(Course c){
         return timeSet.validToInsert(c);
     }
+
     public static Day fromString(String s, HashMap<String,Course> courses){
         Day result = new Day();
         String[] split1 = s.split(titleSplitValue);
@@ -72,6 +60,7 @@ public class Day {
         }
         return result;
     }
+
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append(Title);
@@ -82,7 +71,5 @@ public class Day {
         }
         return sb.toString();
     }
-    public HashSet<Course> getCourses(){
-        return courses;
-    }
+
 }

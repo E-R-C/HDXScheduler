@@ -2,8 +2,19 @@ package e_r_c.hdxscheduler;
 
 import java.util.Comparator;
 
+import lombok.Getter;
+
+/**
+ *
+ * Container for a parsed date string.
+ *
+ * @author E-R-C
+ */
+@Getter
 public class SimpleDate {
-    private int month, day, year, hour, minute, second;
+
+    private final int month, day, year, hour, minute, second;
+
     public SimpleDate(String UTCTimeFromJSON){
         // Ex: 2016-12-14T21:00:00
         if(UTCTimeFromJSON.length() != 19){
@@ -30,28 +41,11 @@ public class SimpleDate {
             }
         };
     }
+
     public int compare(SimpleDate s2){
         return getComparator().compare(this,s2);
     }
-    public int getMonth() {
-        return month;
-    }
 
-    public int getDay() {
-        return day;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public int getHour() {
-        return hour;
-    }
-
-    public int getSecond() {
-        return second;
-    }
     private long getTimeInSec(){
         return second + minute*60 + hour*60*60;
     }

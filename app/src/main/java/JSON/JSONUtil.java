@@ -27,14 +27,28 @@ import java.util.HashSet;
 
 import JSON.Courses.CodeTitleDuple;
 import JSON.Courses.Course;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
-public class JSONUtil {
+/**
+ * JSON Utility class
+ *
+ * @author E-R-C
+ */
+
+// FIXME: 9/1/16  Difficult to mock. Allow a context to be passed in with the constants?
+// FIXME: 9/1/16  Break apart class into one handling network calls and the other handling the straight json.
+// FIXME: 9/1/16  Remove System.out.printlns and use logs instead.
+// FIXME: 9/1/16  Add the exception when an error is logged. Like Log.e(LOG_TAG, message, e)
+@NoArgsConstructor(access= AccessLevel.PRIVATE)
+public final class JSONUtil {
     private static final String LOG_TAG = "JSONUtil";
     public static final String DEFAULT_JSON_NAME = "recordsJSON.json";
     public static final String SUBJECTS_JSONS_NAME = "subjectJSON.json";
     public static final String LEARNINGDOMAINS_NAME = "learningDomains.json";
     public static final String LEARNINGDOMAINS_URL = "http://hoike.hendrix.edu/odata/LearningDomains";
     public static final String SUBJECTS_URL = "http://hoike.hendrix.edu/odata/Subjects";
+
     public static String getJSONFrom(String urlIn){
         // TODO address issue if there is no internet connection
         HttpURLConnection urlConnection = null;
@@ -89,6 +103,7 @@ public class JSONUtil {
         }
         }
     public static String currentURL(){
+        // TODO: Move this to strings.xml.
         return "http://hoike.hendrix.edu/odata/Courses?$filter=Year%20eq%20%272016%27";
     }
     public static HashMap<String,Course> parseJSONCourseList(String json){
@@ -217,6 +232,7 @@ public class JSONUtil {
             JSONArray array = whole.getJSONArray("value");
             for(int i = 0; i < array.length(); i++){
                 JSONObject current = array.getJSONObject(i);
+
                 result.add(new CodeTitleDuple(current.getString("Code"),
                         current.getString("Title")));
             }

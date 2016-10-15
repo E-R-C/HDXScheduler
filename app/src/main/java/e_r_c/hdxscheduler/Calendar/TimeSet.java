@@ -5,10 +5,12 @@ import java.util.TreeSet;
 
 import JSON.Courses.Course;
 import e_r_c.hdxscheduler.SimpleDate;
+import lombok.Value;
 
 public class TimeSet {
 
     TreeSet<TimeDuple> times;
+
     public TimeSet(){
         Comparator<TimeDuple> comparator = new Comparator<TimeDuple>() {
             @Override
@@ -16,7 +18,7 @@ public class TimeSet {
                 return SimpleDate.getComparator().compare(timeDuple.getDate(),t1.getDate());
             }
         };
-        times = new TreeSet<TimeDuple>(comparator);
+        times = new TreeSet<>(comparator);
     }
     public void insert(Course c){
         SimpleDate tempStart  = new SimpleDate(c.getStartTime());
@@ -26,15 +28,7 @@ public class TimeSet {
         times.add(start);
         times.add(end);
     }
-    public void remove(Course c){
-        TimeDuple start = new TimeDuple(new SimpleDate(c.getStartTime()), true);
-        TimeDuple end = new TimeDuple(new SimpleDate(c.getEndTime()),false);
-        for(TimeDuple t: times){
-            if (start.isEqual(t) || end.isEqual(t)){
-                times.remove(t);
-            }
-        }
-    }
+
     public boolean validToInsert(Course c){
         SimpleDate tempStart  = new SimpleDate(c.getStartTime());
         SimpleDate tempEnd = new SimpleDate(c.getEndTime());
@@ -57,26 +51,10 @@ public class TimeSet {
         times.remove(end);
         return true;
     }
-    private class TimeDuple{
-        SimpleDate d;
-        boolean start;
 
-        public TimeDuple(SimpleDate d, boolean start){
-            this.d = d;
-            this.start = start;
-        }
-        public boolean isStart(){
-            return start;
-        }
-        public SimpleDate getDate(){
-            return d;
-        }
-        public boolean isEqual(TimeDuple t){
-            SimpleDate t2 = t.getDate();
-            return (d.getYear() == t2.getYear() && d.getMonth() == t2.getMonth() &&
-                    d.getDay() == t2.getDay() && d.getHour() == t2.getHour() &&
-                    d.getSecond() == d.getSecond());
-        }
-
+    @Value
+    private class TimeDuple {
+        final SimpleDate date;
+        final boolean start;
     }
 }
