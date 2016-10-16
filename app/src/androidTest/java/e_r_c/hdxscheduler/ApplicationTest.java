@@ -11,6 +11,7 @@ import java.util.HashMap;
 
 import JSON.Courses.Course;
 import JSON.JSONUtil;
+import JSON.NetworkUtil;
 
 public class ApplicationTest extends ApplicationTestCase<Application> {
     Context context = getContext();
@@ -18,18 +19,17 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
         super(Application.class);
     }
 
-
-
     public void testJSONBattery() throws Exception{
         context = getContext();
         Assert.assertNotNull(context);
-        String s = JSONUtil.getJSONFrom(JSONUtil.currentURL());
+        String s = NetworkUtil.getJSONFrom(JSONUtil.currentURL());
         Assert.assertNotNull(s);
         JSONUtil.saveJSONToFile(context,s,JSONUtil.DEFAULT_JSON_NAME);
         Assert.assertTrue(new File(context.getFilesDir(),JSONUtil.DEFAULT_JSON_NAME).exists());
         String s2 = JSONUtil.openSavedJSON(context,JSONUtil.DEFAULT_JSON_NAME);
         HashMap<String,Course> h1 = JSONUtil.parseJSONCourseList(s);
         HashMap<String,Course> h2 = JSONUtil.parseJSONCourseList(s2);
+        Assert.assertTrue(h1.get("AMST 385  01").get("Days") != null);
         Assert.assertNotNull(h1);
         Assert.assertNotNull(h2);
     }

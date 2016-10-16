@@ -66,7 +66,7 @@ public class Day {
         sb.append(Title);
         sb.append(titleSplitValue);
         for (Course c: courses){
-            sb.append(c.getCourseCode());
+            sb.append(c.get("CourseCode"));
             sb.append(splitValue);
         }
         return sb.toString();

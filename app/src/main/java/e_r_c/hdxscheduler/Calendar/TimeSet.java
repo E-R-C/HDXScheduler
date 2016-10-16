@@ -21,8 +21,8 @@ public class TimeSet {
         times = new TreeSet<>(comparator);
     }
     public void insert(Course c){
-        SimpleDate tempStart  = new SimpleDate(c.getStartTime());
-        SimpleDate tempEnd = new SimpleDate(c.getEndTime());
+        SimpleDate tempStart  = new SimpleDate(c.get("StartTime"));
+        SimpleDate tempEnd = new SimpleDate(c.get("EndTime"));
         TimeDuple start = new TimeDuple(tempStart,true);
         TimeDuple end = new TimeDuple(tempEnd,false);
         times.add(start);
@@ -30,8 +30,8 @@ public class TimeSet {
     }
 
     public boolean validToInsert(Course c){
-        SimpleDate tempStart  = new SimpleDate(c.getStartTime());
-        SimpleDate tempEnd = new SimpleDate(c.getEndTime());
+        SimpleDate tempStart  = new SimpleDate(c.get("StartTime"));
+        SimpleDate tempEnd = new SimpleDate(c.get("EndTime"));
         TimeDuple start = new TimeDuple(tempStart,true);
         TimeDuple end = new TimeDuple(tempEnd,false);
         times.add(start);

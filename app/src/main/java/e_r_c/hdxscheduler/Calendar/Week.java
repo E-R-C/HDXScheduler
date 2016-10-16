@@ -11,8 +11,10 @@ import lombok.Setter;
 /**
  *
  * Week class
- *
+ * This class represents a mockup schedule that the user has created.
+ * This will be the main loaded and unloaded data the user accesses.
  * @author E-R-C
+ *
  */
 
 // TODO: Explain what this is for. Not used at all?
@@ -67,9 +69,8 @@ public class Week {
 
     public HashSet<Day> getDaysforCourse(Course c){
         HashSet<Day> result = new HashSet<>(5);
-        String[] split = c.getDays().split("\\|");
-        for (String s: split){
-            result.add(days.get(s));
+        for (int i = 0; i < c.get("Days").length(); i++){
+            result.add(days.get(c.get("Days").charAt(i)));
         }
         return result;
     }
